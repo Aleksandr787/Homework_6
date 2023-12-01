@@ -1,6 +1,9 @@
 @forward 'scss/theme';
 @use 'scss/mixins/typography';
 
+$tablet-media: 1024px;
+$phone-media: 500px;
+
 html,
 body {
     height: 100%;
@@ -32,6 +35,20 @@ body {
         display: grid;
         grid-template-columns: subgrid;
     }
+
+    @media(max-width: $tablet-media) {
+        --offset: 36px;
+        --columns: 8;
+    }
+
+    @media(max-width: $phone-media) {
+        // grid-template-columns: 1fr;
+        // grid-template-rows: 1fr 80px;
+
+        // .main {
+        //     grid-row: 1;
+        // }
+    }
 }
 
 
@@ -52,7 +69,7 @@ body {
         box-sizing: border-box;
         grid-column: 2/-2;
         height: 455px;
-        padding-block: 93px;
+        padding-block: 26px;
 
         &__navigation {
             display: flex;
@@ -60,9 +77,17 @@ body {
             justify-content: space-between;
             grid-column: 7/-1;
 
+            @media(max-width: $tablet-media) {
+                grid-column: 3/-1;
+            }
+
             &__button {
                 @include typography.title-large;
                 color: var(--md-sys-color-on-primary);
+
+                @media(max-width: $tablet-media) {
+                    @include typography.title-medium;
+                }
             }
         }
 
@@ -82,6 +107,11 @@ body {
         grid-column: 2/8;
         display: grid;
         grid-template-columns: subgrid;
+        margin-bottom: 180px;
+
+        @media(max-width: $tablet-media) {
+            grid-column: 2/-2;
+        }
 
         // &-top {
         //     grid-column: 2/-2;
@@ -96,6 +126,10 @@ body {
         flex-direction: column;
         gap: 128px;
         justify-content: center;
+
+        @media(max-width: $tablet-media) {
+            gap: 64px;
+        }
 
         &__heading {
             color: var(--md-sys-color-on-primary);
@@ -137,24 +171,6 @@ body {
     grid-column: 2/-2;
     padding-block: 100px;
 
-    &--grid {
-        grid-column: 1/-1;
-        background-color: var(--md-sys-color-secondary-container);
-        column-gap: 24px;
-        row-gap: 64px;
-        padding-inline: 156px;
-
-        .section-one__image {
-            grid-column: span 7;
-            height: 252px;
-        }
-
-        .section-one__content {
-            grid-column: span 7;
-
-        }
-    }
-
     &__image {
         display: flex;
         grid-column: 1/6;
@@ -163,9 +179,19 @@ body {
         object-fit: cover;
         border-radius: 16px;
 
+        @media(max-width: $tablet-media) {
+            margin-bottom: 36px;
+            grid-column: 2/-2;
+        }
+
         &--right {
             grid-column: 8/-1;
             height: 100%;
+
+            @media(max-width: $tablet-media) {
+                margin-top: 36px;
+                grid-column: 2/-2;
+            }
         }
     }
 
@@ -175,8 +201,64 @@ body {
         flex-direction: column;
         gap: 16px;
 
+        @media(max-width: $tablet-media) {
+            grid-column: 2/-2;
+        }
+
         &--left {
             grid-column: 1/6;
+
+            @media(max-width: $tablet-media) {
+                grid-column: 2/-2;
+            }
+        }
+
+        &__title {
+            color: var(--md-sys-color-primary);
+            @include typography.headline-medium;
+        }
+
+        &__text {
+            color: var(--md-sys-color-on-surface);
+            @include typography.body-large;
+        }
+
+    }
+}
+
+.section-one-grid{
+    box-sizing: border-box;
+    grid-column: 1/-1;
+    padding-block: 100px;
+    background-color: var(--md-sys-color-secondary-container);
+    padding-inline: 144px;
+
+    @media(max-width: $tablet-media) {
+        padding-inline: 36px;
+    }
+
+    &__image {
+        display: flex;
+        grid-column: span 7;
+        height: 212px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+
+        @media(max-width: $tablet-media) {
+            margin-bottom: 36px;
+            grid-column: span 5;
+        }
+    }
+
+    &__content {
+        display: flex;
+        grid-column: span 7;
+        flex-direction: column;
+        gap: 16px;
+
+        @media(max-width: $tablet-media) {
+            grid-column: span 5;
         }
 
         &__title {
@@ -205,6 +287,10 @@ body {
         align-items: center;
         justify-content: center;
         grid-column: 4/10;
+
+        @media(max-width: $tablet-media) {
+            grid-column: 2/-2;
+        }
     }
 }
 
@@ -219,7 +305,6 @@ body {
         padding-block: 100px;
         height: auto;
         background-color: var(--md-sys-color-primary-container);
-        //color: var(--md-sys-color-on-primary-container);
     }
 
     &__text {
@@ -249,6 +334,11 @@ body {
 
     &__button {
         grid-column: 5/11;
+        
+        @media(max-width: $tablet-media) {
+            grid-column: 3/-3;
+        }
+
         @include button;
     }
 }
@@ -275,5 +365,9 @@ body {
 
     &__text {
         grid-column: 10/-2;
+
+        @media(max-width: $tablet-media) {
+            grid-column: 7/-2;
+        }
     }
 }
