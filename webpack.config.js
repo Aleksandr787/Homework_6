@@ -9,6 +9,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'index.[contenthash].js',
+        assetModuleFilename: path.join('images', '[name].[contenthash][ext]'),
     },
 
     module: {
@@ -19,6 +20,10 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
+                test: /\.html$/,
+                use: 'html-loader'
+            },
+            {
                 test: /\.(scss|css)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
@@ -26,6 +31,17 @@ module.exports = {
                     'postcss-loader',
                     'sass-loader'
                 ],
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.svg$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: path.join('icons', '[name].[contenthash][ext]'),
+                },
             },
         ],
     },
@@ -43,7 +59,7 @@ module.exports = {
                 },
             },
         }),
-        
+
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
         }),
