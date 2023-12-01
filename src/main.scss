@@ -74,11 +74,13 @@ body {
         &__navigation {
             display: flex;
             width: 100%;
+            gap: 48px;
             justify-content: space-between;
             grid-column: 7/-1;
+            
 
             @media(max-width: $tablet-media) {
-                grid-column: 3/-1;
+                grid-column: 4/-1;
             }
 
             &__button {
@@ -226,7 +228,7 @@ body {
     }
 }
 
-.section-one-grid{
+.section-one-grid {
     box-sizing: border-box;
     grid-column: 1/-1;
     padding-block: 100px;
@@ -334,7 +336,7 @@ body {
 
     &__button {
         grid-column: 5/11;
-        
+
         @media(max-width: $tablet-media) {
             grid-column: 3/-3;
         }
