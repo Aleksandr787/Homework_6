@@ -18,12 +18,13 @@ p {
 body {
     --offset: 144px;
     --columns: 12;
+    --column-gap: 24px;
 
     display: grid;
     grid-template-columns: var(--offset) repeat(var(--columns), 1fr) var(--offset);
     grid-auto-rows: min-content;
     grid-auto-flow: row;
-    column-gap: 24px;
+    column-gap: var(--column-gap);
 
     background-color: var(--md-sys-color-background);
     color: var(--md-sys-color-on-background);
@@ -37,17 +38,9 @@ body {
     }
 
     @media(max-width: $tablet-media) {
-        --offset: 36px;
+        //column-gap: 24px;
+        --offset: 12px;
         --columns: 8;
-    }
-
-    @media(max-width: $phone-media) {
-        // grid-template-columns: 1fr;
-        // grid-template-rows: 1fr 80px;
-
-        // .main {
-        //     grid-row: 1;
-        // }
     }
 }
 
@@ -60,7 +53,6 @@ body {
     background-image: url(https://s3-alpha-sig.figma.com/img/5789/05ac/f6a90cb182a2ace4cb6fbef124c0b2ff?Expires=1702252800&Signature=CiF0uw7JVYVY3L940L01dueprApPGqIGaX3Bhq2yk-efS5DyinVGzjPJuoWmLkI3uSETp8Z-ywqRysNpOOKD9JpZVqRlbgtxHxAR7bWo0ocOhvU1JrqDxVSRMNAGjKynFVvoLQQ5Wwjq2xuQiGvHSRII2Wa8z6OMkpkLeNHYUc1J-sgarGT6SqfnxhwiiXR1GdV6OOOPzJRp9x9sxaM0CzxXffEUAb7Eh6BTs-zLwgfFCiFT~AIbr4CZqJ~KIoHbKZIYJQOPU1MYftN2A0co2zk~7zEboLg~~2cOt7OHMaI-1pq9p8FPfeetSsukfoLjqNx98q8V5yU6B6-1YZcQ8A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
     box-sizing: border-box;
     background-size: cover;
-    background-position: right;
 
 
     &__top {
@@ -68,7 +60,7 @@ body {
         grid-template-columns: subgrid;
         box-sizing: border-box;
         grid-column: 2/-2;
-        height: 455px;
+        height: min-content;
         padding-block: 26px;
 
         &__navigation {
@@ -76,6 +68,7 @@ body {
             width: 100%;
             gap: 48px;
             justify-content: space-between;
+            align-items: center;
             grid-column: 7/-1;
             
 
@@ -157,6 +150,7 @@ body {
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
+    width: auto;
     border-radius: 16px;
     box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
     background-color: var(--md-sys-color-primary);
@@ -183,16 +177,20 @@ body {
 
         @media(max-width: $tablet-media) {
             margin-bottom: 36px;
-            grid-column: 2/-2;
+            grid-column: 1/-1;
         }
 
         &--right {
             grid-column: 8/-1;
             height: 100%;
 
+
             @media(max-width: $tablet-media) {
+                height: 400px;
                 margin-top: 36px;
-                grid-column: 2/-2;
+                margin-bottom: 0px;
+
+                grid-column: 1/-1;
             }
         }
     }
@@ -204,14 +202,14 @@ body {
         gap: 16px;
 
         @media(max-width: $tablet-media) {
-            grid-column: 2/-2;
+            grid-column: 1/-1;
         }
 
         &--left {
             grid-column: 1/6;
 
             @media(max-width: $tablet-media) {
-                grid-column: 2/-2;
+                grid-column: 1/-1;
             }
         }
 
@@ -234,6 +232,7 @@ body {
     padding-block: 100px;
     background-color: var(--md-sys-color-secondary-container);
     padding-inline: 144px;
+    gap: 48px;
 
     @media(max-width: $tablet-media) {
         padding-inline: 36px;
@@ -248,6 +247,7 @@ body {
         border-radius: 16px;
 
         @media(max-width: $tablet-media) {
+            height: 100%;
             margin-bottom: 36px;
             grid-column: span 5;
         }
