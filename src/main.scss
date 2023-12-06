@@ -222,10 +222,13 @@ body {
 .button {
     @include button;
 
-    @media(max-width: $phone-media) {
-        padding: 12px 24px;
-        @include typography.display-small;
-        font-size: 24px;
+    padding: 12px 24px;
+    @include typography.display-small;
+    font-size: 24px;
+
+    @media(min-width: $breakpoint-tablet) {
+        padding: 24px 64px;
+        @include typography.display-medium;
     }
 }
 
@@ -359,12 +362,12 @@ body {
 .section-logo {
     box-sizing: border-box;
     grid-column: 2/-2;
-    height: 455px;
-    padding-block: 93px;
+    height: min-content;
+    padding-block: 72px;
 
-    @media(max-width: $phone-media) {
-        height: min-content;
-        padding-block: 72px;
+    @media(min-width: $breakpoint-desktop) {
+        height: 455px;
+        padding-block: 93px;
     }
 
     &__image {
@@ -373,10 +376,12 @@ body {
         object-fit: cover;
         align-items: center;
         justify-content: center;
-        grid-column: 4/10;
+        grid-column: 2/-2;
+        //content не рaботaет, content это 1/-1 почему???
 
-        @media(max-width: $tablet-media) {
-            grid-column: 2/-2;
+        @media(min-width: $breakpoint-desktop) {
+            grid-column: 4/10;
+
         }
     }
 }
@@ -386,13 +391,13 @@ body {
     background-color: var(--md-sys-color-inverse-surface);
     height: 200px;
     box-sizing: border-box;
-    padding-block: 50px;
+    padding-block: 24px;
     padding-inline: 12px;
     align-items: center;
     justify-content: center;
 
-    @media(max-width: $phone-media) {
-        padding-block: 24px;
+    @media(min-width: $breakpoint-tablet) {
+        padding-block: 50px;
     }
 
     &--large {
@@ -405,67 +410,87 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        //width: min-content;
         gap: 16px;
         grid-column: 1/-1;
         color: var(--md-sys-color-inverse-on-surface);
-        @include typography.display-medium;
 
-        @media(max-width: $phone-media) {
-            @include typography.display-small;
-            font-size: 24px;
-            padding-left: 12px;
+        @include typography.display-small;
+        font-size: 24px;
+        padding-left: 12px;
+
+        @media(min-width: $breakpoint-tablet) {
+            @include typography.display-medium;
+            padding-left: unset;
         }
 
         &--small {
             color: var(--md-sys-color-on-primary-container);
             @include typography.display-small;
+            font-size: 16px;
 
-            @media(max-width: $phone-media) {
-                font-size: 16px;
+            @media(min-width: $breakpoint-tablet) {
+                font-size: 32px;
             }
         }
 
         &--medium {
             color: var(--md-sys-color-on-primary-container);
-            font-size: 44px;
+            font-size: 24px;
 
-            @media(max-width: $phone-media) {
-                font-size: 24px;
+            @media(min-width: $breakpoint-tablet) {
+                font-size: 44px;
             }
-
         }
 
         &--large {
             color: var(--md-sys-color-on-primary-container);
             @include typography.display-large;
+            font-size: 36px;
 
-            @media(max-width: $phone-media) {
-                font-size: 36px;
+            @media(min-width: $breakpoint-tablet) {
+                @include typography.display-large;
             }
-
         }
     }
 
     &__button {
-        grid-column: 5/11;
-
         @include button;
+        padding: 12px 24px;
 
-        @media(max-width: $tablet-media) {
+        display: flex;
+        align-items: center;
+        grid-column: 2/-2;
+        font-size: 24px;
+        height: min-content;
+        //        grid-column: 5/11;
+
+        @media(min-width: $breakpoint-tablet) {
             grid-column: 3/-3;
+
         }
 
-        @media(max-width: $tablet-media) {
+        @media(min-width: $breakpoint-desktop) {
+            grid-column: 5/11;
             @include button;
-            padding: 12px 24px;
+            font-size: 36px;
 
-            display: flex;
-            align-items: center;
-            grid-column: 1/-1;
-            font-size: 24px;
-            height: min-content;
+
         }
+
+        // @media(max-width: $tablet-media) {
+        //     grid-column: 3/-3;
+        // }
+
+        // @media(max-width: $tablet-media) {
+        //     @include button;
+        //     padding: 12px 24px;
+
+        //     display: flex;
+        //     align-items: center;
+        //     grid-column: 1/-1;
+        //     font-size: 24px;
+        //     height: min-content;
+        // }
     }
 }
 
