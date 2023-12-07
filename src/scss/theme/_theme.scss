@@ -1,6 +1,9 @@
 @mixin _light-theme {
     --md-sys-color-primary: var(--md-sys-color-primary-light);
+    --md-sys-color-hover-primary: var(--md-sys-color-hover-primary-light);
+    --md-sys-color-active-primary: var(--md-sys-color-active-primary-light);
     --md-sys-color-on-primary: var(--md-sys-color-on-primary-light);
+    --md-sys-color-on-active-primary: var(--md-sys-color-on-active-primary-light);
     --md-sys-color-primary-container: var(--md-sys-color-primary-container-light);
     --md-sys-color-on-primary-container: var(--md-sys-color-on-primary-container-light);
     --md-sys-color-primary-fixed: var(--md-sys-color-primary-fixed-light);
@@ -52,7 +55,10 @@
 
 @mixin _dark-theme {
     --md-sys-color-primary: var(--md-sys-color-primary-dark);
+    --md-sys-color-hover-primary: var(--md-sys-color-hover-primary-dark);
+    --md-sys-color-active-primary: var(--md-sys-color-active-primary-dark);
     --md-sys-color-on-primary: var(--md-sys-color-on-primary-dark);
+    --md-sys-color-on-active-primary: var(--md-sys-color-on-active-primary-dark);
     --md-sys-color-primary-container: var(--md-sys-color-primary-container-dark);
     --md-sys-color-on-primary-container: var(--md-sys-color-on-primary-container-dark);
     --md-sys-color-primary-fixed: var(--md-sys-color-primary-fixed-dark);
