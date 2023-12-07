@@ -477,7 +477,7 @@ body {
         @media(min-width: $breakpoint-content-max) {
             font-size: 26px;
         }
-        
+
         @media(min-width: $breakpoint-max) {
             font-size: 36px;
         }
@@ -485,40 +485,45 @@ body {
 }
 
 .section-description {
-
-    grid-column: 1/-1;
+    grid-column: container;
     background-color: var(--md-sys-color-surface-variant);
-    @include typography.body-large;
     color: var(--md-sys-color-on-surface-variant);
     padding-block: 64px;
+    @include typography.body-large;
 
     &__text {
-        grid-column: 7/-2;
+        grid-column: 2/-2;
 
-        @media(max-width: $phone-media) {
-            grid-column: 2/-2;
+        @media(min-width: $breakpoint-tablet) {
+            grid-column: 4/-2;
+        }
+
+        @media(min-width: $breakpoint-desktop) {
+            grid-column: 6/-2;
         }
     }
 }
 
 .section-footer {
-    grid-column: 1/-1;
+    grid-column: container;
     background-color: var(--md-sys-color-inverse-surface);
-    @include typography.body-medium;
     color: var(--md-sys-color-inverse-on-surface);
     padding-block: 45px;
-    padding-bottom: 45px;
+    @include typography.body-small;
+
 
     &__text {
-        grid-column: 10/-2;
+        grid-column: 4/-2;
+        justify-content: right;
 
-        @media(max-width: $tablet-media) {
-            grid-column: 7/-2;
+        @media(min-width: $breakpoint-tablet) {
+            @include typography.body-medium;
+            grid-column: 6/-2;
         }
 
-        @media(max-width: $phone-media) {
-            grid-column: 4/-2;
-            @include typography.body-small;
+
+        @media(min-width: $breakpoint-desktop) {
+            grid-column: 10/-2;
         }
     }
 }
