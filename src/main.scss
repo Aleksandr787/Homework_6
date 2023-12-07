@@ -118,6 +118,11 @@ body {
                 color: var(--md-sys-color-on-primary);
                 display: none;
 
+                &:hover {
+                    cursor: pointer;
+                    color: var(--md-sys-color-on-active-primary);
+                }
+
                 @media(min-width: $breakpoint-tablet) {
                     @include typography.title-medium;
                     display: block;
@@ -134,6 +139,12 @@ body {
                 }
 
                 color: var(--md-sys-color-on-primary);
+
+                &:hover{
+                    cursor: pointer;
+                    color: var(--md-sys-color-on-active-primary);
+                }
+
                 display: block;
 
                 @media(min-width: $breakpoint-tablet) {
@@ -218,6 +229,16 @@ body {
     background-color: var(--md-sys-color-primary);
     @include typography.display-medium;
     color: var(--md-sys-color-on-primary);
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--md-sys-color-hover-primary);
+    }
+
+    &:active {
+        background-color: var(--md-sys-color-active-primary);
+        transition: 0.2s;
+    }
 }
 
 .button {
@@ -392,8 +413,12 @@ body {
         object-fit: cover;
         align-items: center;
         justify-content: center;
-        grid-column: 2/-2;
+        grid-column: 1/-1;
+        
         //content не рaботaет, content это 1/-1 почему???
+        @media(min-width: $breakpoint-tablet) {
+            grid-column: 2/-2;
+        }
 
         @media(min-width: $breakpoint-desktop) {
             grid-column: 4/-4;
