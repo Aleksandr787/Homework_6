@@ -82,7 +82,6 @@ body {
     background-size: cover;
     background-position: right;
 
-
     &__top {
         display: grid;
         grid-template-columns: subgrid;
@@ -219,7 +218,7 @@ body {
 
 @mixin button {
     display: flex;
-    padding: 24px 64px;
+    padding: 12px 24px;
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
@@ -243,8 +242,6 @@ body {
 
 .button {
     @include button;
-
-    padding: 12px 24px;
     @include typography.display-small;
     font-size: 24px;
 
@@ -254,7 +251,7 @@ body {
     }
 }
 
-.section-one {
+.section-publication {
     display: grid;
     grid-template-columns: subgrid;
     box-sizing: border-box;
@@ -277,15 +274,14 @@ body {
     &__image {
         display: flex;
         grid-column: content;
-        height: 212px;
-        margin-bottom: 36px;
-        width: 100%;
         object-fit: cover;
+        height: 212px;
+        width: 100%;
         border-radius: 16px;
+        margin-bottom: 36px;
 
         @media(min-width: $breakpoint-desktop) {
             grid-column: 1/6;
-            margin-bottom: 0px;
         }
 
         &--right {
@@ -335,67 +331,6 @@ body {
     }
 }
 
-.section-one-grid {
-    box-sizing: border-box;
-    grid-column: 1/-1;
-    padding-block: 100px;
-    background-color: var(--md-sys-color-secondary-container);
-    padding-inline: 144px;
-    gap: 48px;
-
-    @media(max-width: $tablet-media) {
-        padding-inline: 24px;
-    }
-
-    &__image {
-        display: flex;
-        grid-column: span 7;
-        height: 212px;
-        width: 85%;
-        object-fit: cover;
-        border-radius: 16px;
-
-        @media(max-width: $tablet-media) {
-            height: 100%;
-            margin-bottom: 36px;
-            grid-column: span 5;
-        }
-
-
-        @media(max-width: $phone-media) {
-            height: 100%;
-            margin-bottom: 36px;
-            grid-column: 1/-1;
-        }
-    }
-
-    &__content {
-        display: flex;
-        grid-column: span 7;
-        flex-direction: column;
-        gap: 16px;
-
-        @media(max-width: $tablet-media) {
-            grid-column: span 5;
-        }
-
-        @media(max-width: $phone-media) {
-            grid-column: 1/-1;
-        }
-
-        &__title {
-            color: var(--md-sys-color-primary);
-            @include typography.headline-medium;
-        }
-
-        &__text {
-            color: var(--md-sys-color-on-surface);
-            @include typography.body-large;
-        }
-
-    }
-}
-
 .section-logo {
     box-sizing: border-box;
     grid-column: content;
@@ -413,9 +348,8 @@ body {
         object-fit: cover;
         align-items: center;
         justify-content: center;
-        grid-column: 1/-1;
+        grid-column: content;
         
-        //content не рaботaет, content это 1/-1 почему???
         @media(min-width: $breakpoint-tablet) {
             grid-column: 2/-2;
         }
@@ -426,7 +360,7 @@ body {
     }
 }
 
-.section-two {
+.section-heading {
     background-color: var(--md-sys-color-inverse-surface);
     box-sizing: border-box;
     align-items: center;
@@ -497,7 +431,6 @@ body {
         @include button;
         grid-column: content;
         height: min-content;
-        padding: 12px 24px;
         font-size: 24px;
 
         @media(min-width: $breakpoint-tablet) {
@@ -506,8 +439,6 @@ body {
 
         @media(min-width: $breakpoint-desktop) {
             grid-column: 5/-5;
-            @include button;
-            font-size: 24px;
         }
 
         @media(min-width: $breakpoint-content-max) {
