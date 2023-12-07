@@ -234,9 +234,24 @@ body {
 }
 
 .section-one {
+    display: grid;
+    grid-template-columns: subgrid;
     box-sizing: border-box;
     grid-column: content;
     padding-block: 100px;
+
+    &--wrapper-grid {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: container;
+        padding-block: 100px;
+        background-color: var(--md-sys-color-secondary-container);
+
+    }
+
+    &--grid{
+        padding-block: 20px;
+    }
 
     &__image {
         display: flex;
@@ -362,7 +377,7 @@ body {
 
 .section-logo {
     box-sizing: border-box;
-    grid-column: 2/-2;
+    grid-column: content;
     height: min-content;
     padding-block: 72px;
 
@@ -383,30 +398,26 @@ body {
         @media(min-width: $breakpoint-desktop) {
             grid-column: 4/-4;
         }
-
-        // @media(min-width: $breakpoint-content-max) {
-        //     grid-column: 3/-3;
-        // }
     }
 }
 
 .section-two {
-    grid-column: 1/-1;
     background-color: var(--md-sys-color-inverse-surface);
-    height: 200px;
     box-sizing: border-box;
-    padding-block: 24px;
-    padding-inline: 12px;
     align-items: center;
     justify-content: center;
+    height: 200px;
+    padding-block: 24px;
+    padding-inline: 12px;
+
 
     @media(min-width: $breakpoint-tablet) {
         padding-block: 50px;
     }
 
     &--large {
-        padding-block: 100px;
         height: auto;
+        padding-block: 100px;
         background-color: var(--md-sys-color-primary-container);
     }
 
@@ -459,10 +470,10 @@ body {
 
     &__button {
         @include button;
-        padding: 12px 24px;
-        grid-column: 2/-2;
-        font-size: 24px;
+        grid-column: content;
         height: min-content;
+        padding: 12px 24px;
+        font-size: 24px;
 
         @media(min-width: $breakpoint-tablet) {
             grid-column: 3/-3;
@@ -492,7 +503,7 @@ body {
     @include typography.body-large;
 
     &__text {
-        grid-column: 2/-2;
+        grid-column: content;
 
         @media(min-width: $breakpoint-tablet) {
             grid-column: 4/-2;
@@ -514,13 +525,11 @@ body {
 
     &__text {
         grid-column: 4/-2;
-        justify-content: right;
 
         @media(min-width: $breakpoint-tablet) {
             @include typography.body-medium;
             grid-column: 6/-2;
         }
-
 
         @media(min-width: $breakpoint-desktop) {
             grid-column: 10/-2;
