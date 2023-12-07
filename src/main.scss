@@ -19,6 +19,7 @@ $breakpoint-desktop: 840px;
 
 $breakpoint-content-min: $breakpoint-content + $spacing-max * 2;
 $breakpoint-content-max: $breakpoint-content-min + $offset-max * 2;
+$breakpoint-max: 1350px;
 
 html,
 body {
@@ -165,7 +166,7 @@ body {
             grid-column: 2/10;
         }
 
-        @media(min-width: $breakpoint-content-max) {
+        @media(min-width: $breakpoint-max) {
             grid-column: 2/8;
         }
     }
@@ -380,9 +381,12 @@ body {
         //content не рaботaет, content это 1/-1 почему???
 
         @media(min-width: $breakpoint-desktop) {
-            grid-column: 4/10;
-
+            grid-column: 4/-4;
         }
+
+        // @media(min-width: $breakpoint-content-max) {
+        //     grid-column: 3/-3;
+        // }
     }
 }
 
@@ -456,41 +460,27 @@ body {
     &__button {
         @include button;
         padding: 12px 24px;
-
-        display: flex;
-        align-items: center;
         grid-column: 2/-2;
         font-size: 24px;
         height: min-content;
-        //        grid-column: 5/11;
 
         @media(min-width: $breakpoint-tablet) {
             grid-column: 3/-3;
-
         }
 
         @media(min-width: $breakpoint-desktop) {
-            grid-column: 5/11;
+            grid-column: 5/-5;
             @include button;
-            font-size: 36px;
-
-
+            font-size: 24px;
         }
 
-        // @media(max-width: $tablet-media) {
-        //     grid-column: 3/-3;
-        // }
-
-        // @media(max-width: $tablet-media) {
-        //     @include button;
-        //     padding: 12px 24px;
-
-        //     display: flex;
-        //     align-items: center;
-        //     grid-column: 1/-1;
-        //     font-size: 24px;
-        //     height: min-content;
-        // }
+        @media(min-width: $breakpoint-content-max) {
+            font-size: 26px;
+        }
+        
+        @media(min-width: $breakpoint-max) {
+            font-size: 36px;
+        }
     }
 }
 
